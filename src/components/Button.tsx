@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import Magnetic from './Magnetic'
 
-type Variant = 'primary' | 'ghost' | 'outline'
+type Variant = 'primary' | 'ghost' | 'outline' | 'light' | 'ghost-light'
 
 interface ButtonProps {
   children: ReactNode

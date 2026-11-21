@@ -69,7 +69,12 @@ function OptionGroup<T extends string>({
 
 export default function TakeAway() {
   const [spot, setSpot] = useState<SpotId>('marrakech')
-  const [draft, setDraft] = useState<Draft>(emptyDraft)
+  const [draft, setDraft] = useState<Draft>(() => {
+    const id = new URLSearchParams(window.location.search).get('drink')
+    return id && menuItems.some((m) => m.id === id)
+      ? { itemId: id, size: 'M', milk: 'Classique', ice: 'Normal' }
+      : emptyDraft
+  })
   const [cart, setCart] = useState<CartLine[]>([])
   const [placed, setPlaced] = useState(false)
   const [toast, setToast] = useState<{ id: number; text: string } | null>(null)

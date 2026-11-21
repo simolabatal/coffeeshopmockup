@@ -27,7 +27,19 @@ export default function ScaleIn({
         { scale: 1, autoAlpha: 1, duration, ease: 'power3.out', delay },
       )
     }, el)
-    return () => ctx.revert()
+
+    const t = window.setTimeout(() => {
+      if (el.style.opacity === '0') {
+        el.style.opacity = ''
+        el.style.visibility = ''
+        el.style.transform = ''
+      }
+    }, 3000)
+
+    return () => {
+      window.clearTimeout(t)
+      ctx.revert()
+    }
   }, [from, delay, duration])
 
   return (

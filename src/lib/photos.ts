@@ -13,6 +13,8 @@ export const photos = {
   cappuccino: IMG + 'cappuccino.jpg',
   icedLatte: IMG + 'iced-latte.jpg',
   coldBrew: IMG + 'cold-brew.jpg',
+  coffeeBeans: IMG + 'coffee-beans.jpg',
+  takeawayCup: IMG + 'takeaway-cup.jpg',
   marrakech: IMG + 'marrakech-medina.jpg',
   essaouira: IMG + 'essaouira.jpg',
 } as const

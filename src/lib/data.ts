@@ -24,6 +24,22 @@ export interface Spot {
   photo: string
 }
 
+export interface Category {
+  title: string
+  to: string
+  photo: string
+  alt: string
+}
+
+export interface FeaturedDrink {
+  id: string
+  name: string
+  price: number
+  badge: string
+  photo: string
+  alt: string
+}
+
 export const INSTAGRAM_URL = 'https://www.instagram.com/kesh_cup/'
 export const MAPS_URL = 'https://maps.app.goo.gl/NcyMruNBBfJ8bk7?g_st=ipc'
 
@@ -49,11 +65,11 @@ export const menuItems: MenuItem[] = [
   },
   {
     id: 'cappuccino',
-    name: 'Cappuccino',
-    description: 'Mousse de lait onctueuse sur espresso, équilibre et rondeur.',
+    name: 'Cappuccino Latte Art',
+    description: 'Mousse de lait onctueuse sur espresso, un latte art dessiné à la main.',
     category: 'hot',
     format: 'Chaud',
-    price: 32,
+    price: 25,
     tag: 'Best-seller',
     photo: photos.cappuccino,
   },
@@ -124,6 +140,16 @@ export const menuItems: MenuItem[] = [
     photo: photos.coldBrew,
   },
   {
+    id: 'cold-brew-tonic',
+    name: 'Cold Brew Tonic',
+    description: 'Cold brew intense allongé au tonic, pétillant et désaltérant.',
+    category: 'cold',
+    format: 'Froid',
+    price: 30,
+    tag: 'Signature',
+    photo: photos.coldBrew,
+  },
+  {
     id: 'iced-matcha',
     name: 'Iced Matcha Latte',
     description: 'Matcha fouetté, lait et glace. Végétal et vivifiant.',
@@ -138,7 +164,7 @@ export const menuItems: MenuItem[] = [
     description: 'Caramel, espresso et lait glacé.',
     category: 'cold',
     format: 'Froid',
-    price: 40,
+    price: 28,
     photo: photos.icedLatte,
   },
   {
@@ -211,6 +237,54 @@ export const spots: Spot[] = [
       "Face à la brise atlantique, notre adresse d'Essaouira prolonge le même esprit : des cold drinks vivifiants et un café net, pensés pour la balade.",
     vibe: ['Take away', 'Cold drinks', 'À emporter'],
     photo: photos.essaouira,
+  },
+]
+
+export const categories: Category[] = [
+  {
+    title: 'Hot Coffee & Latte Art',
+    to: '/menu',
+    photo: photos.hotCoffeeLatte,
+    alt: 'Cappuccino avec latte art',
+  },
+  {
+    title: 'Cold Drinks',
+    to: '/menu',
+    photo: photos.coldDrinks,
+    alt: 'Café glacé',
+  },
+  {
+    title: 'Take Away Signatures',
+    to: '/menu',
+    photo: photos.takeawayCup,
+    alt: 'Gobelet take-away',
+  },
+]
+
+export const featuredDrinks: FeaturedDrink[] = [
+  {
+    id: 'iced-caramel',
+    name: 'Iced Caramel Latte',
+    price: 28,
+    badge: 'Signature',
+    photo: photos.icedLatte,
+    alt: 'Iced caramel latte',
+  },
+  {
+    id: 'cold-brew-tonic',
+    name: 'Cold Brew Tonic',
+    price: 30,
+    badge: 'Best-seller',
+    photo: photos.coldBrew,
+    alt: 'Cold brew tonic',
+  },
+  {
+    id: 'cappuccino',
+    name: 'Cappuccino Latte Art',
+    price: 25,
+    badge: 'Best-seller',
+    photo: photos.cappuccino,
+    alt: 'Cappuccino latte art',
   },
 ]
 

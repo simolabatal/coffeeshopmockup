@@ -21,8 +21,20 @@ export default function Page({ children, className = '' }: { children: ReactNode
       gsap.fromTo(el, { autoAlpha: 0, y: 14 }, { autoAlpha: 1, y: 0, duration: 0.65, ease: 'power2.out' })
     }, el)
 
+    // Fail-safe : la page ne doit jamais rester masquée.
+    const t = window.setTimeout(() => {
+      if (el.style.opacity === '0') {
+        el.style.opacity = ''
+        el.style.visibility = ''
+        el.style.transform = ''
+      }
+    }, 1500)
+
     refreshScroll()
-    return () => ctx.revert()
+    return () => {
+      window.clearTimeout(t)
+      ctx.revert()
+    }
   }, [])
 
   return (

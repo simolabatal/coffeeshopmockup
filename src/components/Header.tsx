@@ -8,7 +8,6 @@ import { INSTAGRAM_URL } from '../lib/data'
 const links = [
   { to: '/', label: 'Accueil' },
   { to: '/menu', label: 'Carte' },
-  { to: '/take-away', label: 'Take Away' },
   { to: '/spots', label: 'Spots' },
   { to: '/univers', label: "L'Esprit" },
 ]

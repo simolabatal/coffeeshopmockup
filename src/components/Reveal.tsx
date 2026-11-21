@@ -38,7 +38,7 @@ export default function Reveal({
     if (!el || prefersReducedMotion()) return
 
     const items = Array.from(el.querySelectorAll<HTMLElement>('[data-reveal]'))
-    const targets = items.length ? items : [el]
+    const targets: HTMLElement[] = items.length ? items : [el]
     const st = stagger || (items.length > 1 ? 0.09 : 0)
     const vars = MOTIONS[motion]
 
@@ -59,7 +59,21 @@ export default function Reveal({
       )
     }, el)
 
-    return () => ctx.revert()
+    // Fail-safe : le contenu ne doit jamais rester masqué (opacity: 0).
+    const t = window.setTimeout(() => {
+      targets.forEach((node) => {
+        if (node.style.opacity === '0') {
+          node.style.opacity = ''
+          node.style.visibility = ''
+          node.style.transform = ''
+        }
+      })
+    }, 3000)
+
+    return () => {
+      window.clearTimeout(t)
+      ctx.revert()
+    }
   }, [motion, y, delay, stagger])
 
   return (
