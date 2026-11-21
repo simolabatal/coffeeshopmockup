@@ -202,6 +202,8 @@ input {
   gap: 10px;
   text-decoration: none;
   line-height: 1;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .wordmark__name {
@@ -301,6 +303,7 @@ input {
 .header__actions .header__cta {
   padding: 9px 15px;
   font-size: 0.85rem;
+  flex-shrink: 0;
 }
 
 .header__burger {
@@ -309,6 +312,7 @@ input {
   justify-content: center;
   width: 44px;
   height: 44px;
+  flex-shrink: 0;
   border-radius: var(--radius-full);
   border: 1px solid var(--border);
 }
@@ -557,34 +561,26 @@ input {
 }
 
 .pills {
-  position: relative;
-  display: inline-flex;
+  display: flex;
   flex-wrap: wrap;
-  gap: 8px;
-}
-
-.pills__thumb {
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  background: var(--primary);
-  border-radius: var(--radius-full);
-  transition: transform 0.4s var(--ease), width 0.4s var(--ease);
-  z-index: 0;
+  gap: 10px;
 }
 
 .pill {
-  position: relative;
-  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 10px 16px;
+  white-space: nowrap;
+  flex-shrink: 0;
   font-size: 0.86rem;
   font-weight: 500;
   color: var(--text-soft);
-  padding: 9px 17px;
   border-radius: var(--radius-full);
   border: 1px solid var(--border);
-  background: transparent;
-  transition: color 0.3s var(--ease), border-color 0.3s var(--ease);
+  background: #fff;
+  transition: color 0.25s var(--ease), background 0.25s var(--ease), border-color 0.25s var(--ease);
 }
 
 .pill:hover {
@@ -593,8 +589,9 @@ input {
 }
 
 .pill.is-active {
+  background: var(--primary);
+  border-color: var(--primary);
   color: #fff;
-  border-color: transparent;
 }
 
 /* ---------- Reveal helpers ---------- */
@@ -674,7 +671,7 @@ input {
 
 /* ---------- Page head ---------- */
 .page-head {
-  padding: 70px 0 12px;
+  padding: 96px 0 16px;
 }
 
 .page-head__title {
@@ -1119,16 +1116,17 @@ input {
 
 .menu-row {
   display: flex;
-  align-items: center;
-  gap: 16px;
-  padding: 24px 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 22px 0;
   border-bottom: 1px solid var(--border);
 }
 
 .menu-row__thumb {
-  width: 60px;
-  height: 60px;
-  border-radius: var(--radius-sm);
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
   overflow: hidden;
   flex-shrink: 0;
 }
@@ -1171,9 +1169,11 @@ input {
 
 .menu-row__meta {
   display: flex;
-  align-items: center;
-  gap: 14px;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
   flex-shrink: 0;
+  text-align: right;
 }
 
 .menu-row__price {
@@ -2080,7 +2080,7 @@ input {
 /* ---------- Breakpoints ---------- */
 @media (min-width: 560px) {
   .menu-row {
-    gap: 20px;
+    gap: 16px;
   }
 }
 
@@ -2109,7 +2109,7 @@ input {
   }
 
   .page-head {
-    padding: 96px 0 20px;
+    padding: 112px 0 24px;
   }
 
   .highlights,
@@ -2134,8 +2134,13 @@ input {
   }
 
   .menu-row__thumb {
-    width: 72px;
-    height: 72px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .menu-row__meta {
+    flex-direction: row;
+    align-items: center;
   }
 
   .spot-hero {
